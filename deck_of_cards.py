@@ -30,6 +30,9 @@ class Deck:
         # List Comprehension
         self.cards = [Card(value, suit) for value in values for suit in suits]
 
+    def __repr__(self):
+        return f"Deck of {self.count()} cards"
+
         # for suit in suits:
         #     for value in values:
         #         self.cards.append(Card(value, suit))
@@ -39,3 +42,5 @@ class Deck:
         return len(self.cards)
 
 
+d = Deck()
+print(d)
