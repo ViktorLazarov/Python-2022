@@ -1,3 +1,4 @@
+from random import shuffle
 # Each instance of Card  should have a suit ("Hearts", "Diamonds", "Clubs", or "Spades")
 # Each instance of Card  should have a suit ("Hearts", "Diamonds", "Clubs", or "Spades").
 # Each instance of Card  should have a value ("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K").
@@ -51,6 +52,11 @@ class Deck:
         self.cards = self.cards[:-removed_cards]
         return dealt_cards
 
+    def shuffle(self):
+        if self.count()< 52:
+            raise ValueError("Only full decks can be shuffled")
+        shuffle(self.cards)
+
 
 
 
@@ -59,6 +65,11 @@ class Deck:
 
 
 d = Deck()
-print(d._deal(3))
+d.shuffle()
 print(d.count())
+print(d.cards)
+d.shuffle()
+print(d.cards)
+
+
 
