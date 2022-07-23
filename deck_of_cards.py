@@ -41,6 +41,24 @@ class Deck:
     def count(self):
         return len(self.cards)
 
+    def _deal(self, num):
+        cards_in_deck = self.count()
+        removed_cards = min([num,self.count()])
+        print(f"Going to remove {removed_cards} cards")
+        if cards_in_deck == 0:
+            raise ValueError("All cards have been dealt")
+        dealt_cards = self.cards[-removed_cards:]
+        self.cards = self.cards[:-removed_cards]
+        return dealt_cards
+
+
+
+
+
+
+
 
 d = Deck()
-print(d)
+print(d._deal(3))
+print(d.count())
+
