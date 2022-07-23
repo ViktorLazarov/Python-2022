@@ -34,3 +34,8 @@ class Deck:
         #     for value in values:
         #         self.cards.append(Card(value, suit))
         # print(self.cards)
+
+    def count(self):
+        return len(self.cards)
+
+
