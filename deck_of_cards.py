@@ -57,6 +57,9 @@ class Deck:
             raise ValueError("Only full decks can be shuffled")
         shuffle(self.cards)
 
+    def deal_card(self):
+        return self._deal(1)[0]
+
 
 
 
@@ -69,7 +72,7 @@ d.shuffle()
 print(d.count())
 print(d.cards)
 d.shuffle()
-print(d.cards)
+print(d.deal_card())
 
 
 
