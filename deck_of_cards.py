@@ -34,7 +34,7 @@ class Deck:
         self.cards = [Card(value, suit) for value in values for suit in suits]
 
     def __repr__(self):
-        return f"Deck of {self.count()} cards"
+        return "Deck of {} cards".format(self.count())
 
         # for suit in suits:
         #     for value in values:
@@ -47,7 +47,10 @@ class Deck:
     def _deal(self, num):
         cards_in_deck = self.count()
         removed_cards = min([num, self.count()])
-        print(f"Going to remove {removed_cards} cards")
+        if removed_cards == 1:
+            print("Going to remove {} card".format(removed_cards))
+        else:
+            print("Going to remove {} cards".format(removed_cards))
         if cards_in_deck == 0:
             raise ValueError("All cards have been dealt")
         dealt_cards = self.cards[-removed_cards:]
@@ -71,4 +74,4 @@ d.shuffle()
 print(d.count())
 print(d.cards)
 d.shuffle()
-print(d.deal_card())
+print(d.deal_hand(5))
