@@ -1,4 +1,6 @@
 from random import shuffle
+
+
 # Each instance of Card  should have a suit ("Hearts", "Diamonds", "Clubs", or "Spades")
 # Each instance of Card  should have a suit ("Hearts", "Diamonds", "Clubs", or "Spades").
 # Each instance of Card  should have a value ("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K").
@@ -44,7 +46,7 @@ class Deck:
 
     def _deal(self, num):
         cards_in_deck = self.count()
-        removed_cards = min([num,self.count()])
+        removed_cards = min([num, self.count()])
         print(f"Going to remove {removed_cards} cards")
         if cards_in_deck == 0:
             raise ValueError("All cards have been dealt")
@@ -53,18 +55,15 @@ class Deck:
         return dealt_cards
 
     def shuffle(self):
-        if self.count()< 52:
+        if self.count() < 52:
             raise ValueError("Only full decks can be shuffled")
         shuffle(self.cards)
 
     def deal_card(self):
         return self._deal(1)[0]
 
-
-
-
-
-
+    def deal_hand(self, num):
+        return self._deal(num)
 
 
 d = Deck()
@@ -73,6 +72,3 @@ print(d.count())
 print(d.cards)
 d.shuffle()
 print(d.deal_card())
-
-
-
